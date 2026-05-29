@@ -163,6 +163,10 @@ func _on_interactor_request_camera_state_change(state: bool) -> void:
 		_look_input = Vector2.ZERO
 
 
+func _on_interactor_request_jump_state_change(state: bool) -> void:
+	can_jump = state
+
+
 func _on_interactor_request_movement_state_change(state: bool) -> void:
 	can_move = state
 	if not can_move:

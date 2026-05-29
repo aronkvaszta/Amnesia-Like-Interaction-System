@@ -54,4 +54,5 @@ hand = NodePath("../Head/Eyes/Camera3D/InteractionRay/Hand")
 interaction_ray = NodePath("../Head/Eyes/Camera3D/InteractionRay")
 
 [connection signal="request_camera_state_change" from="Interactor" to="." method="_on_interactor_request_camera_state_change"]
+[connection signal="request_jump_state_change" from="Interactor" to="." method="_on_interactor_request_jump_state_change"]
 [connection signal="request_movement_state_change" from="Interactor" to="." method="_on_interactor_request_movement_state_change"]

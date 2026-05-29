@@ -16,10 +16,12 @@ func _set_current_interactable(v: InteractionBase) -> void:
 	if _current_interactable:
 		_current_interactable.request_camera_state_change.connect(_on_request_camera_state_change)
 		_current_interactable.request_movement_state_change.connect(_on_request_movement_state_change)
+		_current_interactable.request_jump_state_change.connect(_on_request_jump_state_change)
 		#_current_interactable.request_interaction_end.connect(_on_request_interaction_end)
 	else:
 		previous.request_camera_state_change.disconnect(_on_request_camera_state_change)
 		previous.request_movement_state_change.disconnect(_on_request_movement_state_change)
+		previous.request_jump_state_change.disconnect(_on_request_jump_state_change)
 		#previous.request_interaction_end.disconnect(_on_request_interaction_end)
 var _looked_at: Node3D = null : set = _set_looked_at
 func _set_looked_at(v: Node3D) -> void:
@@ -30,6 +32,7 @@ func _set_looked_at(v: Node3D) -> void:
 
 signal request_camera_state_change(state: bool)
 signal request_movement_state_change(state: bool)
+signal request_jump_state_change(state: bool)
 
 
 func _ready() -> void:
@@ -39,23 +42,33 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if _current_interactable and _current_interactable.is_interacting:
-		_current_interactable.interact(delta)
 		match _current_interactable.interaction_type:
 			InteractionBase.InteractionType.TOGGLE:
+				_current_interactable.interact(delta)
 				if Input.is_action_just_pressed(&'interact'):
 					_current_interactable.post_interact()
+
+			InteractionBase.InteractionType.ONESHOT:
+				_current_interactable.interact(delta)
+				_current_interactable.post_interact()
+
+			InteractionBase.InteractionType.HOLD:
+				if Input.is_action_pressed(&'interact'):
+					_current_interactable.interact(delta)
+				elif Input.is_action_just_released(&'interact'):
+					_current_interactable.post_interact()
 		return
+
+	if player.interaction_ray.is_colliding():
+		_looked_at = player.interaction_ray.get_collider()
 	else:
-		if player.interaction_ray.is_colliding():
-			_looked_at = player.interaction_ray.get_collider()
-		else:
-			_looked_at = null
+		_looked_at = null
 
-		if not _current_interactable:
-			return
+	if not _current_interactable:
+		return
 
-		if Input.is_action_just_pressed(&'interact'):
-			_current_interactable.pre_interact(hand)
+	if Input.is_action_just_pressed(&'interact'):
+		_current_interactable.pre_interact(hand)
 
 
 func find_interaction(node: Node3D) -> InteractionBase:
@@ -73,3 +86,5 @@ func _on_request_camera_state_change(state: bool) -> void:
 	request_camera_state_change.emit(state)
 func _on_request_movement_state_change(state: bool) -> void:
 	request_movement_state_change.emit(state)
+func _on_request_jump_state_change(state: bool) -> void:
+	request_jump_state_change.emit(state)

@@ -17,6 +17,7 @@ var can_interact: bool = true
 signal request_interaction_end(use_post: bool)
 signal request_camera_state_change(state: bool)
 signal request_movement_state_change(state: bool)
+signal request_jump_state_change(state: bool)
 
 
 func pre_interact(_hand: Marker3D) -> void: pass

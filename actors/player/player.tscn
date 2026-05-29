@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dingrcno6kj6e"]
 
 [ext_resource type="Script" uid="uid://c84hbnhe0rb8r" path="res://actors/player/player.gd" id="1_nvxhs"]
+[ext_resource type="PackedScene" uid="uid://bif2bkqll2tdm" path="res://components/interactor/interactor.tscn" id="2_ilk7j"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_fv2ni"]
 radius = 0.25
@@ -31,3 +32,6 @@ unique_name_in_owner = true
 current = true
 
 [node name="BufferTimer" type="Timer" parent="." unique_id=763176842]
+
+[node name="Interactor" parent="." unique_id=1603900219 node_paths=PackedStringArray("player") instance=ExtResource("2_ilk7j")]
+player = NodePath("..")

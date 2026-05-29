@@ -44,3 +44,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
 
 [node name="TestBox" parent="." unique_id=1654617066 instance=ExtResource("2_1m2r5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3583784, 0.5, 0.97002953)
+
+[node name="TestBox2" parent="." unique_id=1378849148 instance=ExtResource("2_1m2r5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0962396, 0.5, 0.77372545)

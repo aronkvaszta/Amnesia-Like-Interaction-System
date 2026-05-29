@@ -2,9 +2,13 @@ class_name DragInteraction
 extends InteractionBase
 
 
+@export_category('Flags')
+@export var can_break: bool = false
+@export_category('Forces')
 @export var drag_force: float = 5.0
 @export var rotation_force: float = 10.0
 @export var throw_force: float = 7.5
+@export var break_force: float = 2.0
 
 var _player_hand: Marker3D = null
 
@@ -52,9 +56,17 @@ func interact(dt: float) -> void:
 
 	rb.linear_velocity = dist * (drag_force / rb.mass)
 
+	if can_break and dist.length_squared() >= break_force * break_force:
+		request_interaction_end.emit(true)
+
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		var throw_dir: Vector3 = -_player_hand.global_basis.z * throw_force
+		rb.apply_impulse(throw_dir)
+		request_interaction_end.emit(true)
+
 	if is_rotating:
-		var angular_x: Vector3 = _player_hand.global_basis.y * _mouse_delta.x * dt / rb.mass
-		var angular_y: Vector3 = _player_hand.global_basis.x * _mouse_delta.y * dt / rb.mass
+		var angular_x: Vector3 = _player_hand.global_basis.y * _mouse_delta.x * dt / (1/rb.mass)
+		var angular_y: Vector3 = _player_hand.global_basis.x * _mouse_delta.y * dt / (1/rb.mass)
 
 		rb.apply_torque((angular_x + angular_y) * rotation_force)
 
@@ -62,5 +74,11 @@ func interact(dt: float) -> void:
 
 
 func post_interact() -> void:
+	is_rotating = false
+
+	request_camera_state_change.emit(true)
+	request_movement_state_change.emit(true)
+	request_jump_state_change.emit(true)
+
 	_player_hand = null
 	is_interacting = false

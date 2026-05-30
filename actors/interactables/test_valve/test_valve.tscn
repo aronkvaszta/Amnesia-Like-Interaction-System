@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://h2l45eeqkc6h"]
+
+[ext_resource type="Texture2D" uid="uid://coq0fxh2uh1hp" path="res://kenney_prototype-textures/PNG/Orange/texture_09.png" id="1_tx7tu"]
+[ext_resource type="PackedScene" uid="uid://di44v663wojcy" path="res://components/rotating_interactions/valve_interaction/valve_interaction.tscn" id="2_u1gru"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gru"]
+albedo_texture = ExtResource("1_tx7tu")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1c6y1"]
+top_radius = 0.025390625
+bottom_radius = 0.025390625
+height = 0.1015625
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_j2xpx"]
+top_radius = 0.025390625
+bottom_radius = 0.025390625
+height = 0.46484375
+
+[sub_resource type="TorusMesh" id="TorusMesh_1c6y1"]
+inner_radius = 0.3
+outer_radius = 0.2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tx7tu"]
+size = Vector3(0.61328125, 0.13220215, 0.62280273)
+
+[node name="Test_Valve" type="Node3D" unique_id=52786784]
+
+[node name="PivotPoint" type="Node3D" parent="." unique_id=566053464]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PivotPoint" unique_id=431007566]
+collision_layer = 4
+collision_mask = 7
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PivotPoint/StaticBody3D" unique_id=943397129]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013671875, 0)
+material_override = SubResource("StandardMaterial3D_u1gru")
+mesh = SubResource("CylinderMesh_1c6y1")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="PivotPoint/StaticBody3D" unique_id=953343276]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0.074116856, 0)
+material_override = SubResource("StandardMaterial3D_u1gru")
+mesh = SubResource("CylinderMesh_j2xpx")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="PivotPoint/StaticBody3D" unique_id=1007370413]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, 0, 0.074116856, 0)
+material_override = SubResource("StandardMaterial3D_u1gru")
+mesh = SubResource("CylinderMesh_j2xpx")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="PivotPoint/StaticBody3D" unique_id=1846078814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07262498, 0)
+material_override = SubResource("StandardMaterial3D_u1gru")
+mesh = SubResource("TorusMesh_1c6y1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PivotPoint/StaticBody3D" unique_id=158974491]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07110596, 0)
+shape = SubResource("BoxShape3D_tx7tu")
+
+[node name="ValveInteraction" parent="PivotPoint/StaticBody3D" unique_id=568523150 node_paths=PackedStringArray("pivot_point", "object_ref") instance=ExtResource("2_u1gru")]
+pivot_point = NodePath("../..")
+min_rotation = -360.0
+max_rotation = 360.0
+object_ref = NodePath("..")
+interaction_type = 1

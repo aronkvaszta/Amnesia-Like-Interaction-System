@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://c8r0p1ijiwhru"]
 
 [ext_resource type="PackedScene" uid="uid://b85ecp5wpn1ap" path="res://components/drag_interaction/drag_interaction.tscn" id="1_erx10"]
+[ext_resource type="Texture2D" uid="uid://bf3p152pyp2k4" path="res://kenney_prototype-textures/PNG/Green/texture_01.png" id="1_gyk2s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mglvp"]
+albedo_texture = ExtResource("1_gyk2s")
+uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_1c6y1"]
 
@@ -10,10 +15,12 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 [node name="TestBox" type="RigidBody3D" unique_id=1654617066]
 collision_layer = 4
 collision_mask = 7
+can_sleep = false
 angular_damp_mode = 1
 angular_damp = 5.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1993073400]
+material_override = SubResource("StandardMaterial3D_mglvp")
 mesh = SubResource("BoxMesh_1c6y1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=964872548]

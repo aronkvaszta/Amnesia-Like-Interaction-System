@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://c8lsjg0ku13oh"]
+
+[ext_resource type="PackedScene" uid="uid://djmppve130gxm" path="res://components/rotating_interactions/switch_interction/switch_interaction.tscn" id="1_tgc0m"]
+[ext_resource type="Texture2D" uid="uid://dogwc7ced5q5u" path="res://kenney_prototype-textures/PNG/Orange/texture_04.png" id="1_vddig"]
+[ext_resource type="Texture2D" uid="uid://b0r5ddb0f6vpp" path="res://kenney_prototype-textures/PNG/Dark/texture_08.png" id="3_wga6w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wga6w"]
+albedo_texture = ExtResource("1_vddig")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_1c6y1"]
+size = Vector3(0.1, 0.61783445, 0.1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_tgc0m"]
+radius = 0.125
+height = 0.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wga6w"]
+size = Vector3(0.27929688, 0.80029297, 0.3479004)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5grve"]
+albedo_texture = ExtResource("3_wga6w")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_fv2ni"]
+size = Vector3(0.44726563, 1, 0.24975586)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tgc0m"]
+points = PackedVector3Array(-0.22363281, -0.5, -0.12487793, -0.22363281, -0.5, 0.12487793, -0.22363281, 0.5, -0.12487793, 0.22363281, -0.5, -0.12487793, 0.22363281, -0.5, 0.12487793, -0.22363281, 0.5, 0.12487793, 0.22363281, 0.5, -0.12487793, 0.22363281, 0.5, 0.12487793)
+
+[node name="TestSwitch" type="Node3D" unique_id=1993368952]
+
+[node name="PivotPoint" type="Node3D" parent="." unique_id=1876014873]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881955, 0, 0.25881955, 0.9659258, 0, 0, 0)
+
+[node name="Handle" type="StaticBody3D" parent="PivotPoint" unique_id=331607578]
+collision_layer = 4
+collision_mask = 7
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PivotPoint/Handle" unique_id=2109838935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2589172, 0)
+material_override = SubResource("StandardMaterial3D_wga6w")
+mesh = SubResource("BoxMesh_1c6y1")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="PivotPoint/Handle" unique_id=1184208075]
+transform = Transform3D(1, 0, 0, 0, 1.0000004, -2.9802322e-08, 0, 2.9802322e-08, 1.0000004, 0, 0.59943324, 0)
+material_override = SubResource("StandardMaterial3D_wga6w")
+mesh = SubResource("SphereMesh_tgc0m")
+
+[node name="SwitchInteraction" parent="PivotPoint/Handle" unique_id=1644040443 node_paths=PackedStringArray("pivot_point", "object_ref") instance=ExtResource("1_tgc0m")]
+pivot_point = NodePath("../..")
+max_rotation = 180.0
+object_ref = NodePath("..")
+interaction_type = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PivotPoint/Handle" unique_id=1730462167]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35571292, 1.2789769e-13)
+shape = SubResource("BoxShape3D_wga6w")
+
+[node name="SwitchHolder" type="StaticBody3D" parent="." unique_id=1999323283]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SwitchHolder" unique_id=595040236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.15075684)
+material_override = SubResource("StandardMaterial3D_5grve")
+mesh = SubResource("BoxMesh_fv2ni")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SwitchHolder" unique_id=323277108]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.15075684)
+shape = SubResource("ConvexPolygonShape3D_tgc0m")

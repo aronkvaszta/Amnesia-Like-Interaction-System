@@ -60,8 +60,8 @@ func _process(delta: float) -> void:
 			return
 
 		if Input.is_action_just_pressed(&'interact'):
-			_current_interactable.pre_interact(hand)
 			_connect_interact_signals(_current_interactable)
+			_current_interactable.pre_interact(hand)
 
 
 func find_interaction(node: Node3D) -> InteractionBase:

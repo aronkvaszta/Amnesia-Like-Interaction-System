@@ -25,17 +25,12 @@
 		{
 			"uuid": "5e8f30ce-2839-4e1d-98d5-ff182bd80fed",
 			"title": "Tasks",
-			"tasks": [
-				"6e63f445-bfe7-40f0-a912-498edb753f7a"
-			]
+			"tasks": []
 		},
 		{
 			"uuid": "1c75fe04-5bba-4db3-867e-44f704cbec24",
 			"title": "Doing",
-			"tasks": [
-				"5ae53fce-5626-42c5-bbdc-7c1b0e53d13c",
-				"7ef477d1-62b3-4f90-9705-24cc546be487"
-			]
+			"tasks": []
 		},
 		{
 			"uuid": "6bfac5b5-4fb2-44c2-a289-d6c1edfd1b2a",
@@ -50,43 +45,25 @@
 	],
 	"tasks": [
 		{
-			"uuid": "7ef477d1-62b3-4f90-9705-24cc546be487",
-			"title": "Create Interactor",
-			"description": "Detects interactables and manages current interactable and interactions.",
+			"uuid": "baf6c659-245c-4166-a52f-fd9515ba444a",
+			"title": "Create Door Interactable",
+			"description": "This handles all kinds of doors: Doors, Wardrobe doors and so on",
 			"category": "2a04206f-8e20-4007-a293-d0e89387e593",
-			"steps": []
-		},
-		{
-			"uuid": "5ae53fce-5626-42c5-bbdc-7c1b0e53d13c",
-			"title": "Create Abstract Interactable",
-			"description": "Has abstract functions like pre_interact(), interact() and post_interact() and some base properties that every interactable will be able to provide.",
-			"category": "2a04206f-8e20-4007-a293-d0e89387e593",
-			"steps": []
-		},
-		{
-			"uuid": "6e63f445-bfe7-40f0-a912-498edb753f7a",
-			"title": "Create Drag Interactable",
-			"description": "Inherits AbstractInteractable. When put on any node that's a rigidbody it'll give the player the ability to:\n\n- Pick up that rigidbody and move it around by looking and moving the player\n- Rotate the rigidbody while holding some modifier key and dragging the mouse\n- Throw the rigidbody towards the current look direction by right clicking \n- Move the rigidbody closer or farther to the camera using the scroll wheel\n\nWhen rotating or moving the object closer/farther the player's movement and camera WILL get locked.\n",
-			"category": "8cc0c6dd-7a53-434c-8f4b-c23f359e9798",
 			"steps": [
 				{
-					"details": "Picking up",
+					"details": "Limit door rotation",
 					"done": false
 				},
 				{
-					"details": "Throwing",
+					"details": "Rotate based on player's position relative to the door",
 					"done": false
 				},
 				{
-					"details": "Putting down",
+					"details": "Smooth rotation",
 					"done": false
 				},
 				{
-					"details": "Rotating",
-					"done": false
-				},
-				{
-					"details": "Moving item closer / farther",
+					"details": "Small rotation after post_interact, if the mouse's velocity was large enough just before interaction",
 					"done": false
 				}
 			]

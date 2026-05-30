@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://h3230snnopt4"]
 
 [ext_resource type="PackedScene" uid="uid://dingrcno6kj6e" path="res://actors/player/player.tscn" id="1_eapsv"]
+[ext_resource type="Texture2D" uid="uid://7o8c53ekuhus" path="res://kenney_prototype-textures/Vector/texture_09.svg" id="1_xrb0q"]
 [ext_resource type="PackedScene" uid="uid://c8r0p1ijiwhru" path="res://actors/interactables/test_box/test_box.tscn" id="2_1m2r5"]
+[ext_resource type="PackedScene" uid="uid://bj0yj85d7jkg8" path="res://actors/interactables/test_door/test_door.tscn" id="4_csukt"]
+[ext_resource type="Texture2D" uid="uid://b0r5ddb0f6vpp" path="res://kenney_prototype-textures/PNG/Dark/texture_08.png" id="5_qbexv"]
+[ext_resource type="PackedScene" uid="uid://h2l45eeqkc6h" path="res://actors/interactables/test_valve/test_valve.tscn" id="6_a2off"]
+[ext_resource type="PackedScene" uid="uid://c8lsjg0ku13oh" path="res://actors/interactables/test_switch/test_switch.tscn" id="7_w3n3i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eapsv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -13,13 +18,42 @@ sky_material = SubResource("ProceduralSkyMaterial_eapsv")
 [sub_resource type="Environment" id="Environment_xrb0q"]
 background_mode = 2
 sky = SubResource("Sky_1m2r5")
+ssil_enabled = true
 glow_enabled = true
+fog_mode = 1
+fog_density = 1.0
+fog_aerial_perspective = 0.84
+fog_height_density = -16.0
+volumetric_fog_density = 0.0
+adjustment_saturation = 1.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_csukt"]
+albedo_texture = ExtResource("1_xrb0q")
+uv1_triplanar = true
+proximity_fade_distance = 3549.27
+stencil_flags = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1c6y1"]
 size = Vector2(10, 10)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qjdc4"]
 points = PackedVector3Array(-5, 0, -5, -5, 0, 5, 5, 0, -5, 5, 0, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a2off"]
+albedo_texture = ExtResource("5_qbexv")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_1c6y1"]
+size = Vector3(1, 1, 5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qbexv"]
+points = PackedVector3Array(0.5, 0.5, 2.5, 0.5, -0.5, 2.5, 0.5, 0.5, -2.5, -0.5, 0.5, 2.5, -0.5, -0.5, 2.5, 0.5, -0.5, -2.5, -0.5, 0.5, -2.5, -0.5, -0.5, -2.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a2off"]
+size = Vector3(1, 1, 2.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a2off"]
+points = PackedVector3Array(0.5, 0.5, 1.25, 0.5, -0.5, 1.25, 0.5, 0.5, -1.25, -0.5, 0.5, 1.25, -0.5, -0.5, 1.25, 0.5, -0.5, -1.25, -0.5, 0.5, -1.25, -0.5, -0.5, -1.25)
 
 [node name="TestWorld" type="Node3D" unique_id=1455749257]
 
@@ -32,18 +66,75 @@ environment = SubResource("Environment_xrb0q")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1427785491]
 metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1402386925]
+material_override = SubResource("StandardMaterial3D_csukt")
 mesh = SubResource("PlaneMesh_1c6y1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=2035061729]
 shape = SubResource("ConvexPolygonShape3D_qjdc4")
 
 [node name="Player" parent="." unique_id=25110354 instance=ExtResource("1_eapsv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6657544, 2)
 
 [node name="TestBox" parent="." unique_id=1654617066 instance=ExtResource("2_1m2r5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3583784, 0.5, 0.97002953)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9787261, 0.5, 2)
 
 [node name="TestBox2" parent="." unique_id=1378849148 instance=ExtResource("2_1m2r5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0962396, 0.5, 0.77372545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 0)
+
+[node name="Test_Door" parent="." unique_id=520238911 instance=ExtResource("4_csukt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68065596, 0, -1)
+
+[node name="Test_Door2" parent="." unique_id=765551087 instance=ExtResource("4_csukt")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.0262594, 0, -0.03606403)
+metadata/_edit_group_ = true
+
+[node name="DoorInteraction" parent="Test_Door2/PivotPoint/DoorBody" parent_id_path=PackedInt32Array(765551087, 301896727) index="2" unique_id=221969083]
+max_rotation = 90.0
+
+[node name="StandBox" type="StaticBody3D" parent="." unique_id=2106911994]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.246565, 0.5, -1.9583023)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StandBox" unique_id=1989642325]
+material_override = SubResource("StandardMaterial3D_a2off")
+mesh = SubResource("BoxMesh_1c6y1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StandBox" unique_id=2133439583]
+shape = SubResource("ConvexPolygonShape3D_qbexv")
+
+[node name="StandBox2" type="StaticBody3D" parent="." unique_id=576609069]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.246565, 1.5, -0.70830226)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StandBox2" unique_id=1499043392]
+material_override = SubResource("StandardMaterial3D_a2off")
+mesh = SubResource("BoxMesh_a2off")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StandBox2" unique_id=290214929]
+shape = SubResource("ConvexPolygonShape3D_a2off")
+
+[node name="Test_Valve" parent="." unique_id=52786784 instance=ExtResource("6_a2off")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2656605, 1.0650702, -3.8974612)
+metadata/_edit_group_ = true
+
+[node name="ValveInteraction" parent="Test_Valve/PivotPoint/StaticBody3D" parent_id_path=PackedInt32Array(52786784, 431007566) index="5" unique_id=568523150]
+min_rotation = -60.0
+open_direction = 1
+angle_to_open = 20.0
+max_rotation = 60.0
+
+[node name="TestSwitch" parent="." unique_id=1993368952 instance=ExtResource("7_w3n3i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.5229323, 1.4109484, 0.24231553)
+
+[node name="TestSwitch2" parent="." unique_id=1280625112 instance=ExtResource("7_w3n3i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.9252477, 1.4109484, 0.24231553)
+
+[node name="SwitchInteraction" parent="TestSwitch2/PivotPoint/Handle" parent_id_path=PackedInt32Array(1280625112, 331607578) index="2" unique_id=1644040443]
+open_direction = 0
+
+[editable path="Test_Door2"]
+[editable path="Test_Valve"]
+[editable path="TestSwitch2"]

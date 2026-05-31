@@ -12,8 +12,19 @@ extends CharacterBody3D
 
 
 @export_group('Moving')
-@export var move_speed: float = 2.5
+@export var walk_speed: float = 2.5
+@export var run_speed: float = 5.5
 var _move_input: Vector2 = Vector2.ZERO
+var _move_speed: float = 0.0
+var _is_running: bool = false :
+	set(v):
+		if _is_running == v:
+			return
+		_is_running = v
+		if _is_running:
+			_move_speed = run_speed
+		else:
+			_move_speed = walk_speed
 
 @export_group('Looking')
 @export var sensitivity: float = 0.6
@@ -55,6 +66,8 @@ func _ready() -> void:
 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+	_move_speed = walk_speed
+
 	_head_start_pos = head.transform.origin
 
 	_jump_velocity = 2 * jump_height / peak_time
@@ -81,6 +94,8 @@ func _process(delta: float) -> void:
 			buffer_timer.stop()
 			_wants_to_jump = false
 			player_velocity.y = _jump_velocity
+
+	_is_running = Input.is_action_pressed(&'run') and _move_input != Vector2.ZERO
 
 	_handle_look(delta)
 	_handle_movement()
@@ -120,8 +135,8 @@ func _handle_movement() -> void:
 	_move_input = Input.get_vector(&'left', &'right', &'up', &'down')
 	var move_dir: Vector3 = head.transform.basis * Vector3(_move_input.x, 0.0, _move_input.y).normalized()
 
-	player_velocity.x = move_dir.x * move_speed
-	player_velocity.z = move_dir.z * move_speed
+	player_velocity.x = move_dir.x * _move_speed
+	player_velocity.z = move_dir.z * _move_speed
 
 
 func _handle_jump() -> void:

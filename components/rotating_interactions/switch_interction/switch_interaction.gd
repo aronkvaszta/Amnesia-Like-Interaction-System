@@ -13,9 +13,8 @@ var is_on: bool = false :
 	set(v):
 		if v == is_on:
 			return
-
 		is_on = v
-		print('%s is now %s.' % [owner.name, 'On' if is_on else 'Off'])
+		switch_state_changed.emit(is_on)
 
 signal switch_state_changed(state: bool)
 
@@ -54,7 +53,7 @@ func _process(delta: float) -> void:
 
 	match open_direction:
 		OpenDirection.UP:
-			is_on = rad_to_deg(current_angle) <= rad_to_deg(starting_rotation) * open_angle_percent
+			is_on = rad_to_deg(current_angle) <= rad_to_deg(starting_rotation) / open_angle_percent
 		OpenDirection.DOWN:
 			is_on = rad_to_deg(current_angle) >= rad_to_deg(max_rotation) * open_angle_percent
 

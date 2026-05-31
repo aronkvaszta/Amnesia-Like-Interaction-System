@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://h2l45eeqkc6h"]
 
+[ext_resource type="Script" uid="uid://goid33kyejlh" path="res://actors/interactables/test_valve/test_valve.gd" id="1_aoa3n"]
 [ext_resource type="Texture2D" uid="uid://coq0fxh2uh1hp" path="res://kenney_prototype-textures/PNG/Orange/texture_09.png" id="1_tx7tu"]
 [ext_resource type="PackedScene" uid="uid://di44v663wojcy" path="res://components/rotating_interactions/valve_interaction/valve_interaction.tscn" id="2_u1gru"]
+[ext_resource type="Texture2D" uid="uid://cinim35elnopw" path="res://kenney_cursor-pack/PNG/Basic/Default/rotate_horizontal_up.png" id="4_hcwu0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gru"]
 albedo_texture = ExtResource("1_tx7tu")
@@ -23,7 +25,16 @@ outer_radius = 0.2
 [sub_resource type="BoxShape3D" id="BoxShape3D_tx7tu"]
 size = Vector3(0.61328125, 0.13220215, 0.62280273)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aoa3n"]
+transparency = 1
+albedo_color = Color(1, 0.22745098, 0.14901961, 0.3019608)
+
+[sub_resource type="SphereMesh" id="SphereMesh_u1gru"]
+radius = 0.05
+height = 0.1
+
 [node name="Test_Valve" type="Node3D" unique_id=52786784]
+script = ExtResource("1_aoa3n")
 
 [node name="PivotPoint" type="Node3D" parent="." unique_id=566053464]
 
@@ -56,8 +67,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07110596, 0)
 shape = SubResource("BoxShape3D_tx7tu")
 
 [node name="ValveInteraction" parent="PivotPoint/StaticBody3D" unique_id=568523150 node_paths=PackedStringArray("pivot_point", "object_ref") instance=ExtResource("2_u1gru")]
+unique_name_in_owner = true
 pivot_point = NodePath("../..")
 min_rotation = -360.0
 max_rotation = 360.0
 object_ref = NodePath("..")
 interaction_type = 1
+interaction_icon = ExtResource("4_hcwu0")
+
+[node name="RotationVisuals" type="MeshInstance3D" parent="PivotPoint" unique_id=198316450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25932673, -0.26105484)
+material_override = SubResource("StandardMaterial3D_aoa3n")
+mesh = SubResource("SphereMesh_u1gru")
+
+[node name="IsOpenLabel" type="Label3D" parent="." unique_id=1856756197]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.70000005, 0.100000024)
+text = "Is Open: Closed"
+
+[node name="RotationLabel" type="Label3D" parent="." unique_id=1152825637]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.70000005, -0.099999964)
+text = "Rotation: 0.0"
+
+[node name="OpenDirectionLabel" type="Label3D" parent="." unique_id=471468515]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.70000005, -0.29999995)
+text = "Rotation: 0.0"
+
+[connection signal="current_angle_changed" from="PivotPoint/StaticBody3D/ValveInteraction" to="." method="_on_valve_interaction_current_angle_changed"]
+[connection signal="valve_open_state_changed" from="PivotPoint/StaticBody3D/ValveInteraction" to="." method="_on_valve_interaction_valve_open_state_changed"]

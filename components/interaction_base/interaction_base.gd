@@ -10,6 +10,7 @@ enum InteractionType {
 
 @export var object_ref: Node3D = null
 @export var interaction_type: InteractionType = InteractionType.ONESHOT
+@export var interaction_icon: Texture2D = null
 var is_interacting: bool = false
 var can_interact: bool = true
 

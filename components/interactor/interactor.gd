@@ -13,6 +13,7 @@ var _current_interactable: InteractionBase = null : set = _set_current_interacta
 func _set_current_interactable(v: InteractionBase) -> void:
 	if _current_interactable != v:
 		_current_interactable = v
+		new_interactable.emit(_current_interactable)
 var _looked_at: Node3D = null : set = _set_looked_at
 func _set_looked_at(v: Node3D) -> void:
 	if _looked_at != v:
@@ -23,6 +24,8 @@ func _set_looked_at(v: Node3D) -> void:
 signal request_camera_state_change(state: bool)
 signal request_movement_state_change(state: bool)
 signal request_jump_state_change(state: bool)
+
+signal new_interactable(interactable: InteractionBase)
 
 
 func _ready() -> void:

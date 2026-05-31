@@ -1,0 +1,60 @@
+[gd_scene format=4 uid="uid://bn28a5hynollg"]
+
+[ext_resource type="PackedScene" uid="uid://dmuij5i1sa0a4" path="res://components/drawer_interaction/drawer_interaction.tscn" id="1_nq323"]
+[ext_resource type="Texture2D" uid="uid://bpvyf6cuc7jce" path="res://kenney_prototype-textures/PNG/Orange/texture_07.png" id="1_su1wb"]
+[ext_resource type="Texture2D" uid="uid://bmd03kolygw8i" path="res://kenney_cursor-pack/PNG/Basic/Default/tracking_horizontal.png" id="3_t7jkf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t7jkf"]
+albedo_texture = ExtResource("1_su1wb")
+uv1_triplanar = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nq323"]
+_surfaces = [{
+"aabb": AABB(-0.375, -0.125, -0.5, 0.75, 0.25, 1),
+"attribute_data": PackedByteArray("AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAgD+amXk/d3d3PwAAAAAAAIA/AACAPwAAgD8AAIA/AAAAAJqZeT93d3c/AACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAgD+amXk/d3d3P9DMzDx3d3c/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD/QzMw8d3d3P9DMzDyLiAg9AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAACamXk/i4gIPZqZeT93d3c/AACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAADQzMw8i4gIPZqZeT+LiAg9AAAAAAAAgD/QzMw8i4gIPQAAAAAAAAAAAACAPwAAAAAAAAAAAAAAANDMzDyLiAg9AACAPwAAAAAAAIA/AACAP6AaHzwAAAAAAACAPwAAAAAAAIA/AACAPwAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAgD+gGh88AACAPwAAAAAAAIA/lYN9PwAAAACVg30/AACAPwAAgD+gGh88AACAP6AaHzwAAAAAAACAPwAAAAAAAAAAlYN9PwAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAIA/AACAPwAAgD+gGh88AAAAAAAAgD8AAAAAAACAPwAAgD+gGh88AACAP6AaHzwAAAAAAAAAAAAAgD8AAAAAoBofPAAAgD+gGh88"),
+"format": 34359738391,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 84,
+"vertex_data": PackedByteArray("AADAvgAAAL4AAAC/AADAvgAAAD4AAAC/AADAvgAAAL4AAAA/AADAvgAAAL4AAAC/AADAvgAAAL4AAAA/AADAPgAAAL4AAAC/AADAvgAAAL4AAAC/AADAPgAAAL4AAAC/AADAvgAAAD4AAAC/AADAvgAAAD4AAAC/MzOzvgAAAD4zM/O+AADAvgAAAD4AAAA/AADAvgAAAD4AAAC/AADAPgAAAD4AAAC/MzOzvgAAAD4zM/O+AADAvgAAAL4AAAA/AADAvgAAAD4AAAC/AADAvgAAAD4AAAA/AADAvgAAAD4AAAA/MzOzvgAAAD4zM/O+MzOzvgAAAD4zM/M+AADAvgAAAL4AAAA/AADAvgAAAD4AAAA/AADAPgAAAD4AAAA/AADAvgAAAD4AAAA/MzOzvgAAAD4zM/M+MzOzPgAAAD4zM/M+AADAvgAAAL4AAAA/AADAPgAAAL4AAAA/AADAPgAAAL4AAAC/AADAvgAAAL4AAAA/AADAPgAAAD4AAAA/AADAPgAAAL4AAAA/AADAPgAAAL4AAAC/AADAPgAAAL4AAAA/AADAPgAAAD4AAAA/AADAvgAAAD4AAAC/AADAPgAAAL4AAAC/AADAPgAAAD4AAAC/AADAPgAAAD4AAAC/MzOzPgAAAD4zM/O+MzOzvgAAAD4zM/O+AADAPgAAAL4AAAC/AADAPgAAAD4AAAA/AADAPgAAAD4AAAC/AADAPgAAAD4AAAC/MzOzPgAAAD4zM/M+MzOzPgAAAD4zM/O+AADAvgAAAD4AAAA/MzOzPgAAAD4zM/M+AADAPgAAAD4AAAA/AADAPgAAAD4AAAC/AADAPgAAAD4AAAA/MzOzPgAAAD4zM/M+MzOzvlWflb0zM/O+MzOzvlWflb0zM/M+MzOzvgAAAD4zM/O+MzOzvlWflb0zM/O+MzOzPlWflb0zM/O+MzOzvlWflb0zM/M+MzOzvlWflb0zM/M+MzOzPlWflb0zM/M+MzOzvgAAAD4zM/M+MzOzvlWflb0zM/O+MzOzvgAAAD4zM/O+MzOzPgAAAD4zM/O+MzOzvlWflb0zM/M+MzOzvgAAAD4zM/M+MzOzvgAAAD4zM/O+MzOzvlWflb0zM/O+MzOzPgAAAD4zM/O+MzOzPlWflb0zM/O+MzOzvlWflb0zM/M+MzOzPlWflb0zM/O+MzOzPlWflb0zM/M+MzOzPlWflb0zM/O+MzOzPgAAAD4zM/M+MzOzPlWflb0zM/M+MzOzPlWflb0zM/O+MzOzPgAAAD4zM/O+MzOzPgAAAD4zM/M+MzOzPlWflb0zM/M+MzOzPgAAAD4zM/M+MzOzvgAAAD4zM/M+AAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9///8AAAAA/3//////AAD/f///AAAAAP9//////wAAAAD/f/9//n8AAP9//3/+fwAA/3//f/5//3///wAAAAD/f/////8AAP9///8AAAAA/3//fwAA/z//f/9/AAD/P/9//38AAP8//3///wAAAAD/f///AAAAAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3///wAAAAD/f///AAAAAP9//////wAA////f/9//n////9//3/+f////3//f/5//3///wAAAAD/f/////8AAP9///8AAAAA/3///wAAAAD/f/////8AAP9//////wAA/3///wAAAAD/f/////8AAP9//////wAA////f/9/AID///9//38AgP///3//fwCA/3//////////f/////////9//////////////wAA/7//////AAD/v/////8AAP+//3//fwAA/7//f/9/AAD/v/9//38AAP+/////f/9/AID///9//38AgP///3//fwCA/3//fwAA/7//f/9/AAD/v/9//38AAP+//3//////////f/////////9/////////AAD/f/9/AIAAAP9//38AgAAA/3//fwCAAAD/f/9/AIAAAP9//38AgAAA/3//fwCA/////wAA/7//////AAD/v/////8AAP+/")
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_su1wb"]
+data = PackedVector3Array(-0.375, -0.125, -0.5, -0.375, 0.125, -0.5, -0.375, -0.125, 0.5, -0.375, -0.125, -0.5, -0.375, -0.125, 0.5, 0.375, -0.125, -0.5, -0.375, -0.125, -0.5, 0.375, -0.125, -0.5, -0.375, 0.125, -0.5, -0.375, 0.125, -0.5, -0.35, 0.125, -0.475, -0.375, 0.125, 0.5, -0.375, 0.125, -0.5, 0.375, 0.125, -0.5, -0.35, 0.125, -0.475, -0.375, -0.125, 0.5, -0.375, 0.125, -0.5, -0.375, 0.125, 0.5, -0.375, 0.125, 0.5, -0.35, 0.125, -0.475, -0.35, 0.125, 0.475, -0.375, -0.125, 0.5, -0.375, 0.125, 0.5, 0.375, 0.125, 0.5, -0.375, 0.125, 0.5, -0.35, 0.125, 0.475, 0.35, 0.125, 0.475, -0.375, -0.125, 0.5, 0.375, -0.125, 0.5, 0.375, -0.125, -0.5, -0.375, -0.125, 0.5, 0.375, 0.125, 0.5, 0.375, -0.125, 0.5, 0.375, -0.125, -0.5, 0.375, -0.125, 0.5, 0.375, 0.125, 0.5, -0.375, 0.125, -0.5, 0.375, -0.125, -0.5, 0.375, 0.125, -0.5, 0.375, 0.125, -0.5, 0.35, 0.125, -0.475, -0.35, 0.125, -0.475, 0.375, -0.125, -0.5, 0.375, 0.125, 0.5, 0.375, 0.125, -0.5, 0.375, 0.125, -0.5, 0.35, 0.125, 0.475, 0.35, 0.125, -0.475, -0.375, 0.125, 0.5, 0.35, 0.125, 0.475, 0.375, 0.125, 0.5, 0.375, 0.125, -0.5, 0.375, 0.125, 0.5, 0.35, 0.125, 0.475, -0.35, -0.0731, -0.475, -0.35, -0.0731, 0.475, -0.35, 0.125, -0.475, -0.35, -0.0731, -0.475, 0.35, -0.0731, -0.475, -0.35, -0.0731, 0.475, -0.35, -0.0731, 0.475, 0.35, -0.0731, 0.475, -0.35, 0.125, 0.475, -0.35, -0.0731, -0.475, -0.35, 0.125, -0.475, 0.35, 0.125, -0.475, -0.35, -0.0731, 0.475, -0.35, 0.125, 0.475, -0.35, 0.125, -0.475, -0.35, -0.0731, -0.475, 0.35, 0.125, -0.475, 0.35, -0.0731, -0.475, -0.35, -0.0731, 0.475, 0.35, -0.0731, -0.475, 0.35, -0.0731, 0.475, 0.35, -0.0731, -0.475, 0.35, 0.125, 0.475, 0.35, -0.0731, 0.475, 0.35, -0.0731, -0.475, 0.35, 0.125, -0.475, 0.35, 0.125, 0.475, 0.35, -0.0731, 0.475, 0.35, 0.125, 0.475, -0.35, 0.125, 0.475)
+
+[node name="TestDrawer" type="Node3D" unique_id=1710185269]
+
+[node name="DrawerStart" type="Marker3D" parent="." unique_id=2004117485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 0)
+
+[node name="DrawerStartLabel" type="Label3D" parent="DrawerStart" unique_id=967058573]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+text = "Start"
+
+[node name="DrawerEnd" type="Marker3D" parent="." unique_id=733676174]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60085785, 0, 0)
+
+[node name="DrawerEndLabel" type="Label3D" parent="DrawerEnd" unique_id=1117495863]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+text = "End"
+
+[node name="Drawer" type="Node3D" parent="." unique_id=1086267197]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Drawer" unique_id=1223426479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19294152, 0, 0)
+collision_layer = 4
+collision_mask = 7
+
+[node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="Drawer/StaticBody3D" unique_id=993465850]
+material_override = SubResource("StandardMaterial3D_t7jkf")
+mesh = SubResource("ArrayMesh_nq323")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer/StaticBody3D" unique_id=1357623764]
+shape = SubResource("ConcavePolygonShape3D_su1wb")
+
+[node name="DrawerInteraction" parent="Drawer/StaticBody3D" unique_id=1838345405 node_paths=PackedStringArray("drawer_start_point", "drawer_end_point", "object_ref") instance=ExtResource("1_nq323")]
+drawer_start_point = NodePath("../../../DrawerStart")
+drawer_end_point = NodePath("../../../DrawerEnd")
+object_ref = NodePath("../..")
+interaction_type = 1
+interaction_icon = ExtResource("3_t7jkf")

@@ -1,12 +1,14 @@
-[gd_scene format=3 uid="uid://h3230snnopt4"]
+[gd_scene format=4 uid="uid://h3230snnopt4"]
 
 [ext_resource type="PackedScene" uid="uid://dingrcno6kj6e" path="res://actors/player/player.tscn" id="1_eapsv"]
 [ext_resource type="Texture2D" uid="uid://7o8c53ekuhus" path="res://kenney_prototype-textures/Vector/texture_09.svg" id="1_xrb0q"]
 [ext_resource type="PackedScene" uid="uid://c8r0p1ijiwhru" path="res://actors/interactables/test_box/test_box.tscn" id="2_1m2r5"]
-[ext_resource type="PackedScene" uid="uid://bj0yj85d7jkg8" path="res://actors/interactables/test_door/test_door.tscn" id="4_csukt"]
 [ext_resource type="Texture2D" uid="uid://b0r5ddb0f6vpp" path="res://kenney_prototype-textures/PNG/Dark/texture_08.png" id="5_qbexv"]
 [ext_resource type="PackedScene" uid="uid://h2l45eeqkc6h" path="res://actors/interactables/test_valve/test_valve.tscn" id="6_a2off"]
+[ext_resource type="Script" uid="uid://toe78f7817kl" path="res://rooms/testing/switch_test.gd" id="6_ih4qp"]
+[ext_resource type="Texture2D" uid="uid://ck3c7gbns77jt" path="res://kenney_prototype-textures/PNG/Dark/texture_13.png" id="7_ih4qp"]
 [ext_resource type="PackedScene" uid="uid://c8lsjg0ku13oh" path="res://actors/interactables/test_switch/test_switch.tscn" id="7_w3n3i"]
+[ext_resource type="PackedScene" uid="uid://bn28a5hynollg" path="res://actors/interactables/test_drawer/test_drawer.tscn" id="9_gs41k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eapsv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -34,26 +36,56 @@ proximity_fade_distance = 3549.27
 stencil_flags = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1c6y1"]
-size = Vector2(10, 10)
+size = Vector2(50, 10)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qjdc4"]
-points = PackedVector3Array(-5, 0, -5, -5, 0, 5, 5, 0, -5, 5, 0, 5)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a2off"]
+points = PackedVector3Array(-25, 0, -5, -25, 0, 5, 25, 0, -5, 25, 0, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w3n3i"]
+albedo_texture = ExtResource("5_qbexv")
+uv1_triplanar = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a2off"]
+_surfaces = [{
+"aabb": AABB(-1.5, -1, -0.5, 3, 2, 1),
+"attribute_data": PackedByteArray("AAAAAAAAAAAAAIA/AAAAPwAAgD8AAAAAAACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAAD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAA/AACAPwAAAD8AAAAAAACAPwAAgD8AAIA/AAAAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAAD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAAA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAAAAAAAAPwAAAAAAAIA/AACAPwAAgD8AAAAAAAAAAAAAAAAAAAA/AAAAAAAAgD8AAIA/AACAPwAAAAAAAAA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8AAAA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAAA/AACAPwAAAD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAAA/AACAPwAAAACrqio/AAAAAKuqKj8AAIA/AACAPwAAAAAAAAAAAAAAAAAAgD+rqqo+AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAAACrqio/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAq6qqPgAAgD+rqqo+AACAPwAAgD8AAIA/AAAAAKuqKj8AAIA/AACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAACrqio/AAAAAKuqKj8AAIA/AACAPwAAgD8AAIA/q6oqPwAAAACrqio/AACAPwAAgD8AAAAAq6oqPwAAAAAAAIA/AAAAAAAAAAAAAAAAAACAP6uqqj4AAAAAAACAPwAAgD8AAIA/q6oqPwAAAACrqio/AAAAAAAAgD+rqqo+AACAP6uqqj4AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAgD8AAAAAq6oqPwAAAAAAAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD+rqqo+AACAP6uqqj4AAAAAAAAAAAAAgD+rqqo+AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAgD+rqqo+AAAAAAAAAAAAAAAAq6qqPgAAgD+rqqo+"),
+"format": 34359738391,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 108,
+"vertex_data": PackedByteArray("AAAAPwAAgL8AAAC/AAAAvwAAAAAAAAC/AAAAvwAAgL8AAAC/AAAAvwAAgL8AAAC/AAAAvwAAgL8AAAA/AAAAPwAAgL8AAAC/AAAAvwAAAAAAAAC/AAAAPwAAgL8AAAC/AAAAvwAAgD8AAAC/AAAAvwAAgD8AAAC/AAAAvwAAAAAAAAA/AAAAvwAAAAAAAAC/AAAAvwAAgL8AAAA/AAAAvwAAAAAAAAA/AAAAPwAAgD8AAAA/AAAAvwAAgD8AAAC/AAAAvwAAgD8AAAA/AAAAvwAAAAAAAAA/AAAAvwAAgD8AAAC/AAAAPwAAgD8AAAA/AAAAvwAAgD8AAAA/AAAAvwAAgD8AAAA/AAAAPwAAgD8AAAA/AAAAvwAAAAAAAAA/AAAAvwAAgL8AAAA/AAAAPwAAgL8AAAA/AAAAPwAAgL8AAAC/AAAAvwAAgL8AAAA/AAAAPwAAAAAAAAA/AAAAPwAAgL8AAAA/AAAAvwAAgD8AAAC/AAAAPwAAgL8AAAC/AAAAPwAAAAAAAAC/AAAAPwAAgD8AAAC/AAAAvwAAgD8AAAC/AAAAPwAAAAAAAAC/AAAAvwAAgD8AAAC/AAAAPwAAgD8AAAC/AAAAPwAAgD8AAAA/AAAAPwAAgD8AAAC/AAAAPwAAAAAAAAC/AAAAPwAAgD8AAAA/AAAAPwAAgD8AAAA/AAAAPwAAAAAAAAC/AAAAPwAAAAAAAAA/AAAAvwAAgL8AAAA/AAAAPwAAgD8AAAA/AAAAPwAAAAAAAAA/AADAvwAAgL8AAAC/AAAAvwAAgL8AAAC/AAAAvwAAAAAAAAC/AADAvwAAgL8AAAC/AADAvwAAgL8AAAA/AAAAvwAAgL8AAAC/AADAvwAAgL8AAAC/AADAvwAAAAAAAAC/AADAvwAAgL8AAAA/AADAvwAAgL8AAAC/AAAAvwAAAAAAAAC/AADAvwAAAAAAAAC/AADAvwAAgL8AAAA/AAAAvwAAgL8AAAA/AAAAvwAAgL8AAAC/AADAvwAAgL8AAAA/AADAvwAAAAAAAAA/AAAAvwAAgL8AAAA/AADAvwAAgL8AAAA/AADAvwAAAAAAAAC/AADAvwAAAAAAAAA/AADAvwAAAAAAAAA/AAAAvwAAAAAAAAA/AAAAvwAAgL8AAAA/AADAvwAAAAAAAAC/AAAAvwAAAAAAAAC/AAAAvwAAAAAAAAA/AADAvwAAAAAAAAC/AAAAvwAAAAAAAAA/AADAvwAAAAAAAAA/AADAPwAAgL8AAAC/AADAPwAAAAAAAAC/AAAAPwAAgL8AAAC/AADAPwAAgL8AAAC/AAAAPwAAgL8AAAC/AAAAPwAAgL8AAAA/AADAPwAAAAAAAAC/AAAAPwAAAAAAAAC/AAAAPwAAgL8AAAC/AADAPwAAgL8AAAC/AADAPwAAAAAAAAA/AADAPwAAAAAAAAC/AADAPwAAgL8AAAC/AAAAPwAAgL8AAAA/AADAPwAAgL8AAAA/AADAPwAAgL8AAAC/AADAPwAAgL8AAAA/AADAPwAAAAAAAAA/AADAPwAAgL8AAAA/AAAAPwAAgL8AAAA/AAAAPwAAAAAAAAA/AADAPwAAgL8AAAA/AAAAPwAAAAAAAAA/AADAPwAAAAAAAAA/AADAPwAAAAAAAAC/AADAPwAAAAAAAAA/AAAAPwAAAAAAAAC/AADAPwAAAAAAAAA/AAAAPwAAAAAAAAA/AAAAPwAAAAAAAAC//////wAA/z//////AAD/P/////8AAP8//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//////AAD/f/////8AAP9//////wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8//38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8//////wAA/z//////AAD/P/////8AAP8//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/////f/9//n////9//3/+f////3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//////wAA/z//////AAD/P/////8AAP8//38AAP//AAD/fwAA//8AAP9/AAD//wAAAAD/f/9//n8AAP9//3/+fwAA/3//f/5//////wAA/z//////AAD/P/////8AAP8//38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/3//////AAD/f/////8AAP9//////wAA/////wAA/z//////AAD/P/////8AAP8//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/////f/9//n////9//3/+f////3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA////f/9//n////9//3/+f////3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/3//////AAD/f/////8AAP9//////wAA")
+}]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ih4qp"]
+points = PackedVector3Array(0.49980426, 1, 0.5, 1.5, 0, 0.5, 0.49980426, 1, -0.5, -0.5000979, 1, 0.5, 1.5, 0, -0.5, 1.5, -1, 0.5, -0.5000979, 1, -0.5, -1.5, 0, 0.5, 1.5, -1, -0.5, -1.5, -1, 0.5, -1.5, 0, -0.5, -1.5, -1, -0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a2off"]
 albedo_texture = ExtResource("5_qbexv")
 uv1_triplanar = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_1c6y1"]
-size = Vector3(1, 1, 5)
+[sub_resource type="BoxMesh" id="BoxMesh_w3n3i"]
+size = Vector3(1, 2.2, 1)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qbexv"]
-points = PackedVector3Array(0.5, 0.5, 2.5, 0.5, -0.5, 2.5, 0.5, 0.5, -2.5, -0.5, 0.5, 2.5, -0.5, -0.5, 2.5, 0.5, -0.5, -2.5, -0.5, 0.5, -2.5, -0.5, -0.5, -2.5)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w3n3i"]
+points = PackedVector3Array(-0.5, -1.1, -0.5, -0.5, -1.1, 0.5, -0.5, 1.1, -0.5, 0.5, -1.1, -0.5, 0.5, -1.1, 0.5, -0.5, 1.1, 0.5, 0.5, 1.1, -0.5, 0.5, 1.1, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_a2off"]
-size = Vector3(1, 1, 2.5)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_a2off"]
+data = PackedVector3Array(-25, -2.5, 0.5, -25, -2.5, -0.5, -25, 2.5, -0.5, 25, -2.5, -0.5, -25, -2.5, -0.5, -25, -2.5, 0.5, -25, 2.5, -0.5, -25, -2.5, -0.5, 25, -2.5, -0.5, -25, 2.5, -0.5, -25, 2.5, 0.5, -25, -2.5, 0.5, -25, -2.5, 0.5, -25, 2.5, 0.5, 25, 2.5, 0.5, 25, 2.5, 0.5, -25, 2.5, 0.5, -25, 2.5, -0.5, -25, -2.5, 0.5, 25, -2.5, 0.5, 25, -2.5, -0.5, 25, 2.5, 0.5, 25, -2.5, 0.5, -25, -2.5, 0.5, 25, -2.5, -0.5, 25, -2.5, 0.5, 25, 2.5, 0.5, 25, -2.5, -0.5, 25, 2.5, -0.5, -25, 2.5, -0.5, -25, 2.5, -0.5, 25, 2.5, -0.5, 25, 2.5, 0.5, 25, 2.5, 0.5, 25, 2.5, -0.5, 25, -2.5, -0.5)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a2off"]
-points = PackedVector3Array(0.5, 0.5, 1.25, 0.5, -0.5, 1.25, 0.5, 0.5, -1.25, -0.5, 0.5, 1.25, -0.5, -0.5, 1.25, 0.5, -0.5, -1.25, -0.5, 0.5, -1.25, -0.5, -0.5, -1.25)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gs41k"]
+albedo_texture = ExtResource("7_ih4qp")
+uv1_triplanar = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_w3n3i"]
+_surfaces = [{
+"aabb": AABB(-25, -2.5, -0.5, 50, 5, 1),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AADIwQAAIMAAAAA/AADIwQAAIMAAAAC/AADIwQAAIEAAAAC/AADIQQAAIMAAAAC/AADIwQAAIMAAAAC/AADIwQAAIMAAAAA/AADIwQAAIEAAAAC/AADIwQAAIMAAAAC/AADIQQAAIMAAAAC/AADIwQAAIEAAAAC/AADIwQAAIEAAAAA/AADIwQAAIMAAAAA/AADIwQAAIMAAAAA/AADIwQAAIEAAAAA/AADIQQAAIEAAAAA/AADIQQAAIEAAAAA/AADIwQAAIEAAAAA/AADIwQAAIEAAAAC/AADIwQAAIMAAAAA/AADIQQAAIMAAAAA/AADIQQAAIMAAAAC/AADIQQAAIEAAAAA/AADIQQAAIMAAAAA/AADIwQAAIMAAAAA/AADIQQAAIMAAAAC/AADIQQAAIMAAAAA/AADIQQAAIEAAAAA/AADIQQAAIMAAAAC/AADIQQAAIEAAAAC/AADIwQAAIEAAAAC/AADIwQAAIEAAAAC/AADIQQAAIEAAAAC/AADIQQAAIEAAAAA/AADIQQAAIEAAAAA/AADIQQAAIEAAAAC/AADIQQAAIMAAAAC/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
 
 [node name="TestWorld" type="Node3D" unique_id=1455749257]
 
@@ -72,69 +104,201 @@ metadata/_edit_group_ = true
 material_override = SubResource("StandardMaterial3D_csukt")
 mesh = SubResource("PlaneMesh_1c6y1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=2035061729]
-shape = SubResource("ConvexPolygonShape3D_qjdc4")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=308579586]
+shape = SubResource("ConvexPolygonShape3D_a2off")
 
 [node name="Player" parent="." unique_id=25110354 instance=ExtResource("1_eapsv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6657544, 2)
+move_speed = 7.5
 
-[node name="TestBox" parent="." unique_id=1654617066 instance=ExtResource("2_1m2r5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9787261, 0.5, 2)
+[node name="BoxTest" type="Node3D" parent="." unique_id=2051122830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 0)
 
-[node name="TestBox2" parent="." unique_id=1378849148 instance=ExtResource("2_1m2r5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 0)
+[node name="TestBox" parent="BoxTest" unique_id=1654617066 instance=ExtResource("2_1m2r5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9999999, 0.5, 0)
 
-[node name="Test_Door" parent="." unique_id=520238911 instance=ExtResource("4_csukt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68065596, 0, -1)
+[node name="DragInteraction" parent="BoxTest/TestBox" index="2" unique_id=1180745708]
+interaction_type = 1
 
-[node name="Test_Door2" parent="." unique_id=765551087 instance=ExtResource("4_csukt")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.0262594, 0, -0.03606403)
+[node name="TestBox2" parent="BoxTest" unique_id=1378849148 instance=ExtResource("2_1m2r5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0.5, 0)
+mass = 2.0
+
+[node name="TestBox4" parent="BoxTest" unique_id=614672125 instance=ExtResource("2_1m2r5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6000001, 0.5, 0)
+mass = 4.0
+
+[node name="TestBox3" parent="BoxTest" unique_id=1394335111 instance=ExtResource("2_1m2r5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9000001, 0.5, 0)
+mass = 5.0
+
+[node name="ValveTest" type="Node3D" parent="." unique_id=1375840562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, 0)
 metadata/_edit_group_ = true
 
-[node name="DoorInteraction" parent="Test_Door2/PivotPoint/DoorBody" parent_id_path=PackedInt32Array(765551087, 301896727) index="2" unique_id=221969083]
-max_rotation = 90.0
+[node name="StaticBody3D" type="StaticBody3D" parent="ValveTest" unique_id=245733364]
 
-[node name="StandBox" type="StaticBody3D" parent="." unique_id=2106911994]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.246565, 0.5, -1.9583023)
+[node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="ValveTest/StaticBody3D" unique_id=499309297]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_w3n3i")
+mesh = SubResource("ArrayMesh_a2off")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ValveTest/StaticBody3D" unique_id=1908543958]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("ConvexPolygonShape3D_ih4qp")
+
+[node name="Test_Valve3" parent="ValveTest" unique_id=1541102238 instance=ExtResource("6_a2off")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.5, 0.5)
 metadata/_edit_group_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StandBox" unique_id=1989642325]
-material_override = SubResource("StandardMaterial3D_a2off")
-mesh = SubResource("BoxMesh_1c6y1")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StandBox" unique_id=2133439583]
-shape = SubResource("ConvexPolygonShape3D_qbexv")
-
-[node name="StandBox2" type="StaticBody3D" parent="." unique_id=576609069]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.246565, 1.5, -0.70830226)
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StandBox2" unique_id=1499043392]
-material_override = SubResource("StandardMaterial3D_a2off")
-mesh = SubResource("BoxMesh_a2off")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StandBox2" unique_id=290214929]
-shape = SubResource("ConvexPolygonShape3D_a2off")
-
-[node name="Test_Valve" parent="." unique_id=52786784 instance=ExtResource("6_a2off")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2656605, 1.0650702, -3.8974612)
-metadata/_edit_group_ = true
-
-[node name="ValveInteraction" parent="Test_Valve/PivotPoint/StaticBody3D" parent_id_path=PackedInt32Array(52786784, 431007566) index="5" unique_id=568523150]
+[node name="ValveInteraction" parent="ValveTest/Test_Valve3/PivotPoint/StaticBody3D" parent_id_path=PackedInt32Array(1541102238, 431007566) index="5" unique_id=568523150]
 min_rotation = -60.0
 open_direction = 1
 angle_to_open = 20.0
 max_rotation = 60.0
 
-[node name="TestSwitch" parent="." unique_id=1993368952 instance=ExtResource("7_w3n3i")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.5229323, 1.4109484, 0.24231553)
+[node name="Test_Valve4" parent="ValveTest" unique_id=676427343 instance=ExtResource("6_a2off")]
+transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 0, 1.5, -0.5)
+metadata/_edit_group_ = true
 
-[node name="TestSwitch2" parent="." unique_id=1280625112 instance=ExtResource("7_w3n3i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.9252477, 1.4109484, 0.24231553)
+[node name="ValveInteraction" parent="ValveTest/Test_Valve4/PivotPoint/StaticBody3D" parent_id_path=PackedInt32Array(676427343, 431007566) index="5" unique_id=568523150]
+min_rotation = -60.0
+open_direction = 1
+angle_to_open = 20.0
+max_rotation = 60.0
 
-[node name="SwitchInteraction" parent="TestSwitch2/PivotPoint/Handle" parent_id_path=PackedInt32Array(1280625112, 331607578) index="2" unique_id=1644040443]
+[node name="Test_Valve5" parent="ValveTest" unique_id=1238322077 instance=ExtResource("6_a2off")]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0.5, 1.5, 0)
+metadata/_edit_group_ = true
+
+[node name="ValveInteraction" parent="ValveTest/Test_Valve5/PivotPoint/StaticBody3D" parent_id_path=PackedInt32Array(1238322077, 431007566) index="5" unique_id=568523150]
+min_rotation = -60.0
+open_direction = 1
+angle_to_open = 20.0
+max_rotation = 60.0
+
+[node name="Test_Valve6" parent="ValveTest" unique_id=1455093049 instance=ExtResource("6_a2off")]
+transform = Transform3D(1.3113416e-07, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, 1.3113416e-07, -5.7320566e-15, -0.5, 1.5, 0)
+metadata/_edit_group_ = true
+
+[node name="ValveInteraction" parent="ValveTest/Test_Valve6/PivotPoint/StaticBody3D" parent_id_path=PackedInt32Array(1455093049, 431007566) index="5" unique_id=568523150]
+angle_to_open = 180.0
+
+[node name="SwitchTest" type="Node3D" parent="." unique_id=1361833094]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 0)
+script = ExtResource("6_ih4qp")
+metadata/_edit_group_ = true
+
+[node name="StandBox3" type="StaticBody3D" parent="SwitchTest" unique_id=1654180652]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SwitchTest/StandBox3" unique_id=1945294088]
+material_override = SubResource("StandardMaterial3D_a2off")
+mesh = SubResource("BoxMesh_w3n3i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SwitchTest/StandBox3" unique_id=473817482]
+shape = SubResource("ConvexPolygonShape3D_w3n3i")
+
+[node name="YellowLight" type="SpotLight3D" parent="SwitchTest" unique_id=679404020]
+transform = Transform3D(-4.371139e-08, -0.97518295, 0.2214005, 0, 0.2214005, 0.97518295, -1, 4.26266e-08, -9.6777235e-09, 1.5640297, 4.265768, 0.055525403)
+light_color = Color(1, 1, 0, 1)
+light_energy = 15.04
+shadow_enabled = true
+spot_range = 21.699
+spot_attenuation = 1.11
+spot_angle = 14.2
+
+[node name="YellowSwitch" parent="SwitchTest" unique_id=1993368952 instance=ExtResource("7_w3n3i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.6, 1.4, 0)
+
+[node name="GreenLight" type="SpotLight3D" parent="SwitchTest" unique_id=579493574]
+transform = Transform3D(-4.371139e-08, 0.97518295, -0.2214005, -1.7763567e-15, 0.2214005, 0.97518295, 1, 4.26266e-08, -9.677722e-09, -2.0359688, 4.265768, 0.05552556)
+light_color = Color(0, 1, 0, 1)
+light_energy = 15.04
+shadow_enabled = true
+spot_range = 21.699
+spot_attenuation = 1.11
+spot_angle = 14.2
+
+[node name="GreenSwitch" parent="SwitchTest" unique_id=1280625112 instance=ExtResource("7_w3n3i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.6, 1.4, 0)
+metadata/_edit_group_ = true
+
+[node name="SwitchInteraction" parent="SwitchTest/GreenSwitch/PivotPoint/Handle" parent_id_path=PackedInt32Array(1280625112, 331607578) index="2" unique_id=1644040443]
 open_direction = 0
 
-[editable path="Test_Door2"]
-[editable path="Test_Valve"]
-[editable path="TestSwitch2"]
+[node name="RedLight" type="SpotLight3D" parent="SwitchTest" unique_id=1244561015]
+transform = Transform3D(1, 0, 0, 0, 0.2214005, 0.97518295, 0, -0.97518295, 0.2214005, -0.23596954, 4.265768, 1.8555255)
+light_color = Color(1, 0, 0, 1)
+light_energy = 15.04
+shadow_enabled = true
+spot_range = 21.699
+spot_attenuation = 1.11
+spot_angle = 14.2
+
+[node name="RedSwitch" parent="SwitchTest" unique_id=1663932876 instance=ExtResource("7_w3n3i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6226834e-08, 1.4, 0.5999999)
+
+[node name="BlueLight" type="SpotLight3D" parent="SwitchTest" unique_id=854641475]
+transform = Transform3D(-1, -8.52532e-08, 1.9355447e-08, 0, 0.2214005, 0.97518295, -8.742278e-08, 0.97518295, -0.2214005, -0.23596954, 4.265768, -1.7444745)
+light_color = Color(0, 1, 1, 1)
+light_energy = 15.04
+shadow_enabled = true
+spot_range = 21.699
+spot_attenuation = 1.11
+spot_angle = 14.2
+
+[node name="BlueSwitch" parent="SwitchTest" unique_id=1131704690 instance=ExtResource("7_w3n3i")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.6226834e-08, 1.4, -0.5999999)
+metadata/_edit_group_ = true
+
+[node name="SwitchInteraction" parent="SwitchTest/BlueSwitch/PivotPoint/Handle" parent_id_path=PackedInt32Array(1131704690, 331607578) index="2" unique_id=1644040443]
+open_direction = 0
+
+[node name="TutorialWall" type="StaticBody3D" parent="." unique_id=311538606]
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="TutorialWall" unique_id=2007615498]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5.5)
+shape = SubResource("ConcavePolygonShape3D_a2off")
+
+[node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="TutorialWall" unique_id=1478029302]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5.5)
+material_override = SubResource("StandardMaterial3D_gs41k")
+mesh = SubResource("ArrayMesh_w3n3i")
+
+[node name="BasicsLabel" type="Label3D" parent="TutorialWall" unique_id=1871334324]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.982295, 3.2120843, -4.9448943)
+text = "WASD - Movement
+Space - Jump
+Mouse - Look Around
+E - Interact"
+font_size = 64
+horizontal_alignment = 0
+
+[node name="BasicsLabel2" type="Label3D" parent="TutorialWall" unique_id=964189132]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.982295, 1.8120843, -4.9448943)
+text = "Some interactions may require you to
+hold to E key, some are like toggles."
+font_size = 48
+horizontal_alignment = 0
+
+[node name="TestDrawer" parent="." unique_id=1710185269 instance=ExtResource("9_gs41k")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.95097, 0.54147637, 0.01374054)
+
+[node name="TestDrawer2" parent="." unique_id=639000279 instance=ExtResource("9_gs41k")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.95097, 0.8414763, 0.01374054)
+
+[node name="TestDrawer4" parent="." unique_id=1999424048 instance=ExtResource("9_gs41k")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.95097, 1.1414764, 0.01374054)
+
+[node name="TestDrawer3" parent="." unique_id=282142785 instance=ExtResource("9_gs41k")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.95097, 0.24147636, 0.01374054)
+
+[editable path="BoxTest/TestBox"]
+[editable path="ValveTest/Test_Valve3"]
+[editable path="ValveTest/Test_Valve4"]
+[editable path="ValveTest/Test_Valve5"]
+[editable path="ValveTest/Test_Valve6"]
+[editable path="SwitchTest/GreenSwitch"]
+[editable path="SwitchTest/BlueSwitch"]

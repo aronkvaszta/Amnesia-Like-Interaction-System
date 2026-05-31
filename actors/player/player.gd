@@ -6,6 +6,7 @@ extends CharacterBody3D
 @onready var camera: Camera3D = %Camera3D
 @onready var interaction_ray: RayCast3D = %InteractionRay
 @onready var hand: Marker3D = %Hand
+@onready var interaction_icon: TextureRect = %InteractionIcon
 
 @onready var buffer_timer: Timer = $BufferTimer
 
@@ -46,9 +47,12 @@ var _head_start_pos: Vector3 = Vector3.ZERO
 
 var player_velocity: Vector3 = Vector3.ZERO
 
+var _initial_interaction_icon: Texture2D
 
 
 func _ready() -> void:
+	_initial_interaction_icon = interaction_icon.texture
+
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 	_head_start_pos = head.transform.origin
@@ -173,3 +177,11 @@ func _on_interactor_request_movement_state_change(state: bool) -> void:
 		_move_input = Vector2.ZERO
 		player_velocity.x = 0.0
 		player_velocity.z = 0.0
+
+
+func _on_interactor_new_interactable(interactable: InteractionBase) -> void:
+	if interactable == null:
+		interaction_icon.texture = _initial_interaction_icon
+		return
+
+	interaction_icon.texture = interactable.interaction_icon

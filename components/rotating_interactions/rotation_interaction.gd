@@ -7,11 +7,19 @@ extends InteractionBase
 @export var smoothing_coefficient: float = 13.5
 var starting_rotation: float
 
-var current_angle: float
+var current_angle: float :
+	set(v):
+		if current_angle == v:
+			return
+		current_angle = v
+		current_angle_changed.emit(current_angle)
 var previous_angle: float
 
 var angular_velocity: float
 var input_active: bool = false
+
+
+signal current_angle_changed(new_angle: float)
 
 
 func _ready() -> void:

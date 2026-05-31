@@ -38,7 +38,9 @@ enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg", "res://addons/
 
 folder_colors={
 "res://actors/": "green",
-"res://components/": "orange"
+"res://components/": "orange",
+"res://kenney_cursor-pack/": "purple",
+"res://kenney_prototype-textures/": "purple"
 }
 
 [input]

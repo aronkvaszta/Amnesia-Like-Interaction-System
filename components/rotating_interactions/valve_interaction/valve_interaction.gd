@@ -12,12 +12,13 @@ enum OpenDirection {
 @export var angle_to_open: float = 360
 var is_open: bool = false :
 	set(v):
-		if is_open != v:
-			is_open = v
-			print('%s is now %s' % [owner.name, 'Open' if is_open else 'Closed'])
+		if is_open == v:
+			return
 
-signal valve_opened()
-signal valve_closed()
+		is_open = v
+		valve_open_state_changed.emit(is_open)
+
+signal valve_open_state_changed(state: bool)
 
 
 func _ready() -> void:

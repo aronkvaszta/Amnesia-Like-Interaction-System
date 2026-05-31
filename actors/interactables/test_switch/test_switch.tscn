@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://c8lsjg0ku13oh"]
 
+[ext_resource type="Script" uid="uid://dpgngbqky5a2" path="res://actors/interactables/test_switch/test_switch.gd" id="1_5grve"]
 [ext_resource type="PackedScene" uid="uid://djmppve130gxm" path="res://components/rotating_interactions/switch_interction/switch_interaction.tscn" id="1_tgc0m"]
 [ext_resource type="Texture2D" uid="uid://dogwc7ced5q5u" path="res://kenney_prototype-textures/PNG/Orange/texture_04.png" id="1_vddig"]
 [ext_resource type="Texture2D" uid="uid://b0r5ddb0f6vpp" path="res://kenney_prototype-textures/PNG/Dark/texture_08.png" id="3_wga6w"]
+[ext_resource type="Texture2D" uid="uid://deaqyinavconu" path="res://kenney_cursor-pack/PNG/Basic/Default/resize_b_vertical.png" id="4_slejv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wga6w"]
 albedo_texture = ExtResource("1_vddig")
@@ -29,6 +31,7 @@ size = Vector3(0.44726563, 1, 0.24975586)
 points = PackedVector3Array(-0.22363281, -0.5, -0.12487793, -0.22363281, -0.5, 0.12487793, -0.22363281, 0.5, -0.12487793, 0.22363281, -0.5, -0.12487793, 0.22363281, -0.5, 0.12487793, -0.22363281, 0.5, 0.12487793, 0.22363281, 0.5, -0.12487793, 0.22363281, 0.5, 0.12487793)
 
 [node name="TestSwitch" type="Node3D" unique_id=1993368952]
+script = ExtResource("1_5grve")
 
 [node name="PivotPoint" type="Node3D" parent="." unique_id=1876014873]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881955, 0, 0.25881955, 0.9659258, 0, 0, 0)
@@ -48,10 +51,12 @@ material_override = SubResource("StandardMaterial3D_wga6w")
 mesh = SubResource("SphereMesh_tgc0m")
 
 [node name="SwitchInteraction" parent="PivotPoint/Handle" unique_id=1644040443 node_paths=PackedStringArray("pivot_point", "object_ref") instance=ExtResource("1_tgc0m")]
+unique_name_in_owner = true
 pivot_point = NodePath("../..")
 max_rotation = 180.0
 object_ref = NodePath("..")
 interaction_type = 1
+interaction_icon = ExtResource("4_slejv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PivotPoint/Handle" unique_id=1730462167]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35571292, 1.2789769e-13)
@@ -67,3 +72,18 @@ mesh = SubResource("BoxMesh_fv2ni")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SwitchHolder" unique_id=323277108]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.15075684)
 shape = SubResource("ConvexPolygonShape3D_tgc0m")
+
+[node name="OpenDirectionLabel" type="Label3D" parent="." unique_id=1339213537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.3, 0)
+text = "Open Direction: "
+
+[node name="IsOpenLabel" type="Label3D" parent="." unique_id=926093127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 7.450581e-09, 0)
+text = "Is Open:"
+
+[node name="AngleLabel" type="Label3D" parent="." unique_id=1958995518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.59999996, -0.29999998, 0)
+text = "Angle:"
+
+[connection signal="current_angle_changed" from="PivotPoint/Handle/SwitchInteraction" to="." method="_on_switch_interaction_current_angle_changed"]
+[connection signal="switch_state_changed" from="PivotPoint/Handle/SwitchInteraction" to="." method="_on_switch_interaction_switch_state_changed"]

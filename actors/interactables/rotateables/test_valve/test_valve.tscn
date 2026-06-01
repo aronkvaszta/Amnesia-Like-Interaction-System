@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://h2l45eeqkc6h"]
 
-[ext_resource type="Script" uid="uid://goid33kyejlh" path="res://actors/interactables/test_valve/test_valve.gd" id="1_aoa3n"]
+[ext_resource type="Script" uid="uid://goid33kyejlh" path="res://actors/interactables/rotateables/test_valve/test_valve.gd" id="1_aoa3n"]
 [ext_resource type="Texture2D" uid="uid://coq0fxh2uh1hp" path="res://kenney_prototype-textures/PNG/Orange/texture_09.png" id="1_tx7tu"]
-[ext_resource type="PackedScene" uid="uid://di44v663wojcy" path="res://components/rotating_interactions/valve_interaction/valve_interaction.tscn" id="2_u1gru"]
+[ext_resource type="PackedScene" uid="uid://di44v663wojcy" path="res://components/interaction_system/rotating_interactions/valve_interaction/valve_interaction.tscn" id="2_u1gru"]
 [ext_resource type="Texture2D" uid="uid://cinim35elnopw" path="res://kenney_cursor-pack/PNG/Basic/Default/rotate_horizontal_up.png" id="4_hcwu0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gru"]

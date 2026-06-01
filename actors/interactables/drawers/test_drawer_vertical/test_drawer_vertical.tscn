@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://ecukqcwryvql"]
 
 [ext_resource type="Texture2D" uid="uid://bpvyf6cuc7jce" path="res://kenney_prototype-textures/PNG/Orange/texture_07.png" id="1_ha2p1"]
-[ext_resource type="PackedScene" uid="uid://dmuij5i1sa0a4" path="res://components/drawer_interaction/drawer_interaction.tscn" id="2_a3k00"]
+[ext_resource type="PackedScene" uid="uid://dmuij5i1sa0a4" path="res://components/interaction_system/drawer_interaction/drawer_interaction.tscn" id="2_a3k00"]
 [ext_resource type="Texture2D" uid="uid://bmd03kolygw8i" path="res://kenney_cursor-pack/PNG/Basic/Default/tracking_horizontal.png" id="3_b74tu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ha2p1"]

@@ -38,9 +38,11 @@ enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg", "res://addons/
 
 folder_colors={
 "res://actors/": "green",
+"res://addons/": "purple",
 "res://components/": "orange",
 "res://kenney_cursor-pack/": "purple",
-"res://kenney_prototype-textures/": "purple"
+"res://kenney_prototype-textures/": "purple",
+"res://rooms/": "blue"
 }
 
 [input]
@@ -86,6 +88,8 @@ run={
 3d_physics/layer_1="World"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Interactable"
+3d_physics/layer_4="InteractionArea"
+3d_physics/layer_5="InteractableArea"
 
 [physics]
 

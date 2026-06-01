@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b85ecp5wpn1ap"]
+
+[ext_resource type="Script" uid="uid://budvycol55y6p" path="res://components/interaction_system/drag_interaction/drag_interaction.gd" id="1_h3j7t"]
+
+[node name="DragInteraction" type="Node" unique_id=1180745708]
+script = ExtResource("1_h3j7t")

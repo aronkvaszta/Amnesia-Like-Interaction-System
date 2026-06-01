@@ -2,14 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://dingrcno6kj6e" path="res://actors/player/player.tscn" id="1_eapsv"]
 [ext_resource type="Texture2D" uid="uid://7o8c53ekuhus" path="res://kenney_prototype-textures/Vector/texture_09.svg" id="1_xrb0q"]
-[ext_resource type="PackedScene" uid="uid://c8r0p1ijiwhru" path="res://actors/interactables/test_box/test_box.tscn" id="2_1m2r5"]
+[ext_resource type="PackedScene" uid="uid://c8r0p1ijiwhru" path="res://actors/interactables/draggables/test_box/test_box.tscn" id="2_1m2r5"]
 [ext_resource type="Texture2D" uid="uid://b0r5ddb0f6vpp" path="res://kenney_prototype-textures/PNG/Dark/texture_08.png" id="5_qbexv"]
-[ext_resource type="PackedScene" uid="uid://h2l45eeqkc6h" path="res://actors/interactables/test_valve/test_valve.tscn" id="6_a2off"]
+[ext_resource type="PackedScene" uid="uid://h2l45eeqkc6h" path="res://actors/interactables/rotateables/test_valve/test_valve.tscn" id="6_a2off"]
 [ext_resource type="Script" uid="uid://toe78f7817kl" path="res://rooms/testing/switch_test.gd" id="6_ih4qp"]
 [ext_resource type="Texture2D" uid="uid://ck3c7gbns77jt" path="res://kenney_prototype-textures/PNG/Dark/texture_13.png" id="7_ih4qp"]
-[ext_resource type="PackedScene" uid="uid://c8lsjg0ku13oh" path="res://actors/interactables/test_switch/test_switch.tscn" id="7_w3n3i"]
-[ext_resource type="PackedScene" uid="uid://bn28a5hynollg" path="res://actors/interactables/test_drawer_horizontal/test_drawer_horizontal.tscn" id="9_gs41k"]
-[ext_resource type="PackedScene" uid="uid://ecukqcwryvql" path="res://actors/interactables/test_drawer_vertical/test_drawer_vertical.tscn" id="10_tf3tr"]
+[ext_resource type="PackedScene" uid="uid://c8lsjg0ku13oh" path="res://actors/interactables/rotateables/test_switch/test_switch.tscn" id="7_w3n3i"]
+[ext_resource type="PackedScene" uid="uid://bn28a5hynollg" path="res://actors/interactables/drawers/test_drawer_horizontal/test_drawer_horizontal.tscn" id="9_gs41k"]
+[ext_resource type="PackedScene" uid="uid://ecukqcwryvql" path="res://actors/interactables/drawers/test_drawer_vertical/test_drawer_vertical.tscn" id="10_tf3tr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eapsv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

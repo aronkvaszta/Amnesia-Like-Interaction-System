@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://dmuij5i1sa0a4"]
-
-[ext_resource type="Script" uid="uid://bjt6ruaxnoikv" path="res://components/drawer_interaction/drawer_interaction.gd" id="1_njoi1"]
-
-[node name="DrawerInteraction" type="Node" unique_id=1838345405]
-script = ExtResource("1_njoi1")

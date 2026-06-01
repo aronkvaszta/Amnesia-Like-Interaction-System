@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c8r0p1ijiwhru"]
 
-[ext_resource type="PackedScene" uid="uid://b85ecp5wpn1ap" path="res://components/drag_interaction/drag_interaction.tscn" id="1_erx10"]
+[ext_resource type="PackedScene" uid="uid://b85ecp5wpn1ap" path="res://components/interaction_system/drag_interaction/drag_interaction.tscn" id="1_erx10"]
 [ext_resource type="Texture2D" uid="uid://bf3p152pyp2k4" path="res://kenney_prototype-textures/PNG/Green/texture_01.png" id="1_gyk2s"]
-[ext_resource type="Script" uid="uid://bdustvesb2ejw" path="res://actors/interactables/test_box/test_box.gd" id="1_mglvp"]
+[ext_resource type="Script" uid="uid://bdustvesb2ejw" path="res://actors/interactables/draggables/test_box/test_box.gd" id="1_mglvp"]
 [ext_resource type="Texture2D" uid="uid://cefo56e6rmflk" path="res://kenney_cursor-pack/PNG/Basic/Default/hand_closed.png" id="4_61cvd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mglvp"]

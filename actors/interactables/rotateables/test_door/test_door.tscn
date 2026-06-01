@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bj0yj85d7jkg8"]
 
-[ext_resource type="PackedScene" uid="uid://crswgn0r8k17e" path="res://components/rotating_interactions/door_interaction/door_interaction.tscn" id="1_fgrd0"]
+[ext_resource type="PackedScene" uid="uid://crswgn0r8k17e" path="res://components/interaction_system/rotating_interactions/door_interaction/door_interaction.tscn" id="1_fgrd0"]
 [ext_resource type="Texture2D" uid="uid://udsio3hxoru7" path="res://kenney_prototype-textures/PNG/Purple/texture_07.png" id="1_nnj2g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xewri"]

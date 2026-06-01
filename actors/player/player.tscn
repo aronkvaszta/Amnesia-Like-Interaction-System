@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dingrcno6kj6e"]
 
 [ext_resource type="Script" uid="uid://c84hbnhe0rb8r" path="res://actors/player/player.gd" id="1_nvxhs"]
-[ext_resource type="PackedScene" uid="uid://bif2bkqll2tdm" path="res://components/interactor/interactor.tscn" id="2_ilk7j"]
+[ext_resource type="PackedScene" uid="uid://bif2bkqll2tdm" path="res://components/interaction_system/interactor/interactor.tscn" id="2_ilk7j"]
 [ext_resource type="Texture2D" uid="uid://bkyjlubnfun6k" path="res://kenney_cursor-pack/PNG/Basic/Default/dot_large.png" id="3_ax26v"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_fv2ni"]

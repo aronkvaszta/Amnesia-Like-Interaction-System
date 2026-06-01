@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://di44v663wojcy"]
+
+[ext_resource type="Script" uid="uid://ddg4vxq5yjlsi" path="res://components/interaction_system/rotating_interactions/valve_interaction/valve_interaction.gd" id="1_8y1hj"]
+
+[node name="ValveInteraction" type="Node" unique_id=568523150]
+script = ExtResource("1_8y1hj")

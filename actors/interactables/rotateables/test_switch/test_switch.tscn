@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c8lsjg0ku13oh"]
 
-[ext_resource type="Script" uid="uid://dpgngbqky5a2" path="res://actors/interactables/test_switch/test_switch.gd" id="1_5grve"]
-[ext_resource type="PackedScene" uid="uid://djmppve130gxm" path="res://components/rotating_interactions/switch_interction/switch_interaction.tscn" id="1_tgc0m"]
+[ext_resource type="Script" uid="uid://dpgngbqky5a2" path="res://actors/interactables/rotateables/test_switch/test_switch.gd" id="1_5grve"]
+[ext_resource type="PackedScene" uid="uid://djmppve130gxm" path="res://components/interaction_system/rotating_interactions/switch_interction/switch_interaction.tscn" id="1_tgc0m"]
 [ext_resource type="Texture2D" uid="uid://dogwc7ced5q5u" path="res://kenney_prototype-textures/PNG/Orange/texture_04.png" id="1_vddig"]
 [ext_resource type="Texture2D" uid="uid://b0r5ddb0f6vpp" path="res://kenney_prototype-textures/PNG/Dark/texture_08.png" id="3_wga6w"]
 [ext_resource type="Texture2D" uid="uid://deaqyinavconu" path="res://kenney_cursor-pack/PNG/Basic/Default/resize_b_vertical.png" id="4_slejv"]
